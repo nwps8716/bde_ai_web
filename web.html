@@ -152,7 +152,7 @@
         </div>
     </div>
     <h1>AI 問題服務</h1>
-    <p>請選擇按鈕以查看系統資訊。</p>
+    <p>請點選按鈕以查看分析資訊。</p>
 </header>
 
 <div class="container">
@@ -164,7 +164,7 @@
 
     <!-- 右側按鈕區域 -->
     <div class="right-column">
-        <h2>資安事件分析</h2>
+        <h2>事件分析</h2>
         <div class="button-section">
             <button onclick="analyzeLogs('attack')">檢查、分析惡意攻擊</button>
             <button onclick="analyzeLogs('marketing')">分析網站商品點擊率</button>
@@ -212,7 +212,7 @@
                 ? './test_data/attack.json'
                 : './test_data/marketing.json';
             const aiRole = type === 'attack'
-                ? '你是一個網頁攻擊分析專家，幫我分析這些Log，順便整理這些資安事件，用中文回答我。'
+                ? '你是一個資安分析攻擊的專家，幫我分析這些Log，順便整理歸納LOG內的資料，並簡單說明有發生的資安事件，用中文回答我。'
                 : '你是一個網頁產品分析專家，幫我分析這些Log，給我一些銷售建議，用中文回答我。';
 
             // 發送 POST 請求到本地 API

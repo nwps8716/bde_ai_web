@@ -12,7 +12,7 @@ app.use(express.json());
 // 檔案路徑
 const dataFilePath = './data.json';
 const defaultLogFilePath = './test_data/attack.json';
-const defaultAiRole = '你是一個網頁攻擊分析專家，幫我分析這些Log，順便整理這些資安事件，用中文回答我。';
+const defaultAiRole = '你是一個資安分析攻擊的專家，幫我分析這些Log，順便整理歸納LOG內的資料，並簡單說明有發生的資安事件，用中文回答我。';
 
 // 初始化 data.json
 async function initializeDataFile() {
