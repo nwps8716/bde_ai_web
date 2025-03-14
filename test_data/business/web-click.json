@@ -1,0 +1,17 @@
+[
+    {"user_id":"U12345","timestamp":"2025-03-14T10:15:30Z","page":"/home","referrer":"google.com","device":"mobile","session_duration":45,"clicks":3,"location":"Taiwan"},
+    {"user_id":"U67890","timestamp":"2025-03-14T10:17:10Z","page":"/product/123","referrer":"facebook.com","device":"desktop","session_duration":120,"clicks":7,"location":"USA"},
+    {"user_id":"U54321","timestamp":"2025-03-14T10:20:05Z","page":"/checkout","referrer":"direct","device":"tablet","session_duration":60,"clicks":5,"location":"Japan"},
+    {"user_id":"U98765","timestamp":"2025-03-14T10:22:45Z","page":"/blog/article-1","referrer":"twitter.com","device":"mobile","session_duration":180,"clicks":10,"location":"Germany"},
+    {"user_id":"U45678","timestamp":"2025-03-14T10:25:50Z","page":"/contact","referrer":"linkedin.com","device":"desktop","session_duration":30,"clicks":2,"location":"UK"},
+    {"user_id":"U11223","timestamp":"2025-03-14T10:28:12Z","page":"/about","referrer":"bing.com","device":"mobile","session_duration":50,"clicks":4,"location":"France"},
+    {"user_id":"U33445","timestamp":"2025-03-14T10:30:40Z","page":"/services","referrer":"yahoo.com","device":"tablet","session_duration":75,"clicks":6,"location":"Canada"},
+    {"user_id":"U55667","timestamp":"2025-03-14T10:33:22Z","page":"/pricing","referrer":"google.com","device":"desktop","session_duration":90,"clicks":8,"location":"Australia"},
+    {"user_id":"U77889","timestamp":"2025-03-14T10:35:55Z","page":"/faq","referrer":"direct","device":"mobile","session_duration":40,"clicks":3,"location":"Italy"},
+    {"user_id":"U99001","timestamp":"2025-03-14T10:38:15Z","page":"/blog/article-2","referrer":"reddit.com","device":"desktop","session_duration":150,"clicks":9,"location":"Spain"},
+    {"user_id":"U65432","timestamp":"2025-03-14T10:40:20Z","page":"/home","referrer":"google.com","device":"desktop","session_duration":55,"clicks":4,"location":"Mexico"},
+    {"user_id":"U32109","timestamp":"2025-03-14T10:42:30Z","page":"/product/123","referrer":"instagram.com","device":"mobile","session_duration":110,"clicks":6,"location":"Brazil"},
+    {"user_id":"U76543","timestamp":"2025-03-14T10:44:40Z","page":"/checkout","referrer":"google.com","device":"tablet","session_duration":95,"clicks":8,"location":"India"},
+    {"user_id":"U88888","timestamp":"2025-03-14T10:47:15Z","page":"/blog/article-1","referrer":"twitter.com","device":"desktop","session_duration":200,"clicks":12,"location":"Russia"},
+    {"user_id":"U55555","timestamp":"2025-03-14T10:50:10Z","page":"/contact","referrer":"linkedin.com","device":"mobile","session_duration":35,"clicks":2,"location":"Netherlands"}
+]

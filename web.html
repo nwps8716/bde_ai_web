@@ -168,6 +168,7 @@
         <div class="button-section">
             <button onclick="analyzeLogs('attack')">檢查、分析惡意攻擊</button>
             <button onclick="analyzeLogs('marketing')">分析網站商品點擊率</button>
+            <button onclick="analyzeLogs('web_click')">網站點擊率</button>
         </div>
     </div>
 </div>
@@ -208,12 +209,19 @@
 
         try {
             // 根據按鈕類型決定檔案路徑
-            const filePath = type === 'attack' 
-                ? './test_data/attack.json'
-                : './test_data/marketing.json';
-            const aiRole = type === 'attack'
-                ? '你是一個資安分析攻擊的專家，幫我分析這些Log，順便整理歸納LOG內的資料，並簡單說明有發生的資安事件，用中文回答我。'
-                : '你是一個網頁產品分析專家，幫我分析這些Log，給我一些銷售建議，用中文回答我。';
+            let filePath;
+            let aiRole;
+            if (type === 'attack') {
+                filePath = './test_data/attack.json';
+                aiRole = '你是一個資安分析攻擊的專家，請幫我分析Log且詳細說明所有的風險，並用繁體中文回答我。';
+            } else if (type === 'marketing') {
+                filePath = './test_data/marketing.json';
+                aiRole = '你是一個網頁產品分析專家，幫我分析這些Log，給我一些銷售建議，並用繁體中文回答我。';
+            } else if (type === 'web_click') {
+                filePath = './test_data/business/web-click.json';
+                aiRole = '你是一個資料分析師，幫我統計 Log 內的 page 欄位，url 出現的次數個是多少，並用繁體中文回答我。';
+            }
+
 
             // 發送 POST 請求到本地 API
             const response = await fetch('http://localhost:3000/api/analyze-logs', {
