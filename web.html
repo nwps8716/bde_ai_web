@@ -107,17 +107,17 @@
             // 根據按鈕類型決定檔案路徑
             let filePath, aiRole, helpMessage;
             if (type === 'attack_api') {
-                filePath = './test_data/security/attack.json';
+                filePath = './test_data/security/api-attack-log.json';
                 aiRole = '你是一個資安分析攻擊的專家';
-                helpMessage = '請幫我分析Log且詳細說明所有的風險，用繁體中文回答。';
+                helpMessage = '幫我檢測是否有API被攻擊，並確認防護處理狀況，用繁體中文回答我';
             } else if (type === 'health') {
-                filePath = './test_data/security/attack.json';
+                filePath = './test_data/security/http-error.json';
                 aiRole = '你是一個資安分析攻擊的專家';
-                helpMessage = '請幫我分析Log且詳細說明所有的風險，用繁體中文回答。';
+                helpMessage = '幫我分析log紀錄內遇到的資安問題，並同時告知我這些錯誤的代碼是什麼原因導致網頁產生這些錯誤，同時提供解決方式建議，用繁體中文回答我。。';
             } else if (type === 'attack_agent') {
-                filePath = './test_data/security/attack.json';
+                filePath = './test_data/security/user-agent.json';
                 aiRole = '你是一個資安分析攻擊的專家';
-                helpMessage = '請幫我分析Log且詳細說明所有的風險，用繁體中文回答。';
+                helpMessage = '幫我分析log紀錄內，異常的user-agent，同時提供分析結果，並提供解決方式建議，用繁體中文回答我。';
             } else if (type === 'marketing') {
                 filePath = './test_data/business/marketing.json';
                 aiRole = '你是一個網頁產品分析專家';

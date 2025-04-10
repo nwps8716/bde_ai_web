@@ -1,0 +1,46 @@
+{
+  "api_attacks": [
+    {
+      "timestamp": "2025-03-13T19:01:30Z",
+      "source_ip": "175.45.176.10",
+      "api_path": "/v1/ticketing/orders",
+      "attack_type": "SQL Injection"
+    },
+    {
+      "timestamp": "2025-03-13T19:02:30Z",
+      "source_ip": "31.8.12.45",
+      "api_path": "/v2/auth/login",
+      "attack_type": "Brute Force"
+    },
+    {
+      "timestamp": "2025-03-13T19:10:00Z",
+      "source_ip": "175.45.177.23",
+      "api_path": "/v1/users/register",
+      "attack_type": "DDoS"
+    },
+    {
+      "timestamp": "2025-03-13T19:20:30Z",
+      "source_ip": "31.8.15.67",
+      "api_path": "/v1/users/register/confirm",
+      "attack_type": "DDoS"
+    },
+    {
+      "timestamp": "2025-03-13T19:21:00Z",
+      "source_ip": "175.45.178.91",
+      "api_path": "/v1/ticketing/orders/cancel",
+      "attack_type": "DDoS"
+      },
+    {
+      "timestamp": "2025-03-13T19:20:00Z",
+      "source_ip": "31.8.10.123",
+      "api_path": "/v2/admin/dashboard",
+      "attack_type": "Cross-Site Scripting (XSS)"
+    },
+    {
+      "timestamp": "2025-03-13T19:20:00Z",
+      "source_ip": "175.45.176.56",
+      "api_path": "/v1/payment/gateway",
+      "attack_type": "Man-in-the-Middle (MitM)"
+    }
+  ]
+}
