@@ -1,0 +1,14 @@
+[
+    {"location": "Taiwan", "user": 5},
+    {"location": "USA", "user": 8},
+    {"location": "Japan", "user": 3},
+    {"location": "Germany", "user": 6},
+    {"location": "Brazil", "user": 4},
+    {"location": "India", "user": 7},
+    {"location": "Australia", "user": 9},
+    {"location": "Canada", "user": 2},
+    {"location": "UK", "user": 5},
+    {"location": "France", "user": 3},
+    {"location": "South Korea", "user": 6},
+    {"location": "Mexico", "user": 4}
+]

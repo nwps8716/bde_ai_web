@@ -4,146 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AI 問題服務</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            width: 100%;
-        }
-        header .nav-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 30px;
-            background-color: #3e8e41;
-        }
-        header .nav-bar .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        header .nav-bar .menu {
-            display: flex;
-            gap: 20px;
-        }
-        header .nav-bar .menu a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            padding: 5px 10px;
-        }
-        header .nav-bar .menu a:hover {
-            background-color: #45a049;
-            border-radius: 5px;
-        }
-        header .nav-bar .auth-buttons a {
-            text-decoration: none;
-            color: white;
-            font-size: 1rem;
-            padding: 5px 15px;
-            background-color: #555;
-            border-radius: 5px;
-            margin-left: 10px;
-        }
-        header .nav-bar .auth-buttons a:hover {
-            background-color: #333;
-        }
-
-        .container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin-top: 20px;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        .left-column, .right-column {
-            padding: 20px;
-            width: 50%;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        .button-section {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 5px;
-            position: relative;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 10px;
-            background-color: #f1f1f1;
-        }
-
-        /* 留言板樣式 */
-        .message-board {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            height: 300px;
-            overflow-y: scroll;
-            margin-bottom: 20px;
-        }
-
-        .message-board .message {
-            margin-bottom: 10px;
-            padding: 8px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-        }
-
-        .message-board .message p {
-            margin: 0;
-        }
-
-        .message-board .message .author {
-            font-weight: bold;
-        }
-    </style>
+    <title>BDE.AI</title>
+    <link rel="stylesheet" href="./web.css">
 </head>
 <body>
 
 <header>
     <div class="nav-bar">
-        <div class="logo">AI 問題服務</div>
+        <div className="logo">
+            <img src="./bde-logo.png" alt="Logo" style="width: 120px; height: 50px;">
+        </div>
         <div class="menu">
             <a href="#">首頁</a>
             <a href="#">關於我們</a>
-            <a href="#">服務</a>
+            <a href="#">智能分析服務</a>
             <a href="#">聯絡我們</a>
         </div>
         <div class="auth-buttons">
@@ -151,50 +25,63 @@
             <a href="#">註冊</a>
         </div>
     </div>
-    <h1>AI 問題服務</h1>
-    <p>請點選按鈕以查看分析資訊。</p>
 </header>
 
 <div class="container">
     <!-- 左側系統告警區域 -->
     <div class="left-column">
-        <h2>AI 回覆</h2>
+        <h3>智能分析</h3>
         <div class="message-board" id="messageBoard"></div>
     </div>
 
     <!-- 右側按鈕區域 -->
     <div class="right-column">
-        <h2>事件分析</h2>
+        <h3>分析情境</h3>
         <div class="button-section">
-            <button onclick="analyzeLogs('attack')">檢查、分析惡意攻擊</button>
-            <button onclick="analyzeLogs('marketing')">分析網站商品點擊率</button>
+            <button onclick="analyzeLogs('attack')">惡意攻擊</button>
+            <button onclick="analyzeLogs('marketing')">網站商品銷售量</button>
             <button onclick="analyzeLogs('web_click')">網站點擊率</button>
+            <button onclick="analyzeLogs('location')">用戶地區分佈</button>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2025 AI 問題服務。版權所有。</p>
+    <p>&copy; Twister5-極風雲創版權所有</p>
 </footer>
 
 <script>
     // 顯示訊息到留言板
-    function showMessage(title, content) {
+    // 在 messageBoard 中顯示訊息，支援流式追加
+    function showMessage(title, content = '', isStreaming = false) {
         let messageBoard = document.getElementById("messageBoard");
-        let newMessage = document.createElement("div");
-        newMessage.classList.add("message");
-        
-        let currentTime = new Date().toLocaleString('zh-TW', { 
-            year: 'numeric', 
-            month: '2-digit', 
-            day: '2-digit', 
-            hour: '2-digit', 
-            minute: '2-digit', 
-            second: '2-digit' 
-        });
-        
-        newMessage.innerHTML = `<p class='author'>AI 助理 (${currentTime})：</p><p>${title} - ${content}</p>`;
-        messageBoard.appendChild(newMessage);
+
+        if (!messageBoard) {
+            console.error('找不到 messageBoard 元素');
+            return;
+        }
+
+        let messageDiv;
+        if (isStreaming && messageBoard.lastElementChild && messageBoard.lastElementChild.classList.contains("message")) {
+            messageDiv = messageBoard.lastElementChild;
+        } else {
+            messageDiv = document.createElement("div");
+            messageDiv.classList.add("message");
+            let currentTime = new Date().toLocaleString('zh-TW', { 
+                year: 'numeric', month: '2-digit', day: '2-digit', 
+                hour: '2-digit', minute: '2-digit', second: '2-digit' 
+            });
+            messageDiv.innerHTML = `<p class='author'>AI 助理-(${currentTime})：</p><p>${title} - <span class="content"></span></p>`;
+            messageBoard.appendChild(messageDiv);
+        }
+
+        let contentSpan = messageDiv.querySelector(".content");
+        if (contentSpan) {
+            contentSpan.textContent += content;
+        } else {
+            console.error('找不到 content span');
+        }
+
         messageBoard.scrollTop = messageBoard.scrollHeight;
     }
 
@@ -203,27 +90,38 @@
         const button = event.target;
         const originalText = button.textContent;
 
-        // 顯示 Loading 狀態
-        button.textContent = '載入中...';
-        button.disabled = true;
+        // 找到所有按鈕
+        const allButtons = document.querySelectorAll('.button-section button');
+        // 禁用所有按鈕並改變當前按鈕文字
+        allButtons.forEach(btn => {
+            btn.disabled = true;
+            if (btn === button) {
+                btn.textContent = '分析中...'; // 只改變當前按鈕的文字
+            }
+        });
 
         try {
             // 根據按鈕類型決定檔案路徑
-            let filePath;
-            let aiRole;
+            let filePath, aiRole, helpMessage;
             if (type === 'attack') {
-                filePath = './test_data/attack.json';
-                aiRole = '你是一個資安分析攻擊的專家，請幫我分析Log且詳細說明所有的風險，並用繁體中文回答我。';
+                filePath = './test_data/security/attack.json';
+                aiRole = '你是一個資安分析攻擊的專家';
+                helpMessage = '請幫我分析Log且詳細說明所有的風險，用繁體中文回答。';
             } else if (type === 'marketing') {
-                filePath = './test_data/marketing.json';
-                aiRole = '你是一個網頁產品分析專家，幫我分析這些Log，給我一些銷售建議，並用繁體中文回答我。';
+                filePath = './test_data/business/marketing.json';
+                aiRole = '你是一個網頁產品分析專家';
+                helpMessage = '幫我分析這些Log，給我一些銷售建議，用繁體中文回答。';
             } else if (type === 'web_click') {
                 filePath = './test_data/business/web-click.json';
-                aiRole = '你是一個資料分析師，幫我統計 Log 內的 page 欄位，url 出現的次數個是多少，並用繁體中文回答我。';
+                aiRole = '你是一個資料分析師';
+                helpMessage = '幫我分析Log內的點擊率，然後給我建議，用繁體中文回答。';
+            } else if (type === 'location') {
+                filePath = './test_data/business/location.json';
+                aiRole = '你是一個資料分析師';
+                helpMessage = '幫我分析Log內的使用者位置分佈，給我一些商業建議，用繁體中文回答。';
             }
 
-
-            // 發送 POST 請求到本地 API
+            // 發送 POST 請求並接收流式回應
             const response = await fetch('http://localhost:3000/api/analyze-logs', {
                 method: 'POST',
                 headers: {
@@ -231,20 +129,46 @@
                 },
                 body: JSON.stringify({ 
                     filePath,
-                    aiRole
+                    aiRole,
+                    helpMessage,
+                    stream: true // 告訴後端啟用流式回應（假設後端支援）
                 })
             });
 
-            const data = await response.json();
-
-            if (response.ok) {
-                // 顯示 API 回應結果
-                const analysis = data.analysis?.message || '分析完成';
-                console.log(data.analysis?.message);
-                showMessage(type === 'attack' ? '惡意攻擊分析' : '網站點擊率分析', analysis.content);
-            } else {
-                showMessage('錯誤', data.message || '分析失敗');
+            if (!response.ok) {
+                throw new Error('API 請求失敗');
             }
+
+            // 處理流式回應
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder('utf-8');
+
+            let buffer = ''; // 用於累積不完整的 JSON 片段
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                // 解碼並追加到緩衝區
+                buffer += decoder.decode(value, { stream: true });
+
+                // 按行處理（假設每個 JSON 片段以換行符分隔）
+                const lines = buffer.split('\n');
+                buffer = lines.pop(); // 保留不完整的行
+
+                for (const line of lines) {
+                    if (line.trim()) { // 忽略空行
+                        try {
+                            const json = JSON.parse(line);
+                            if (json.message && json.message.content) {
+                                showMessage('', json.message.content, true);
+                            }
+                        } catch (e) {
+                            console.error('JSON 解析失敗:', line, e);
+                        }
+                    }
+                }
+            }
+
         } catch (error) {
             showMessage('錯誤', `無法連接到伺服器: ${error.message}`);
         } finally {
