@@ -38,7 +38,9 @@
     <div class="right-column">
         <h3>分析情境</h3>
         <div class="button-section">
-            <button onclick="analyzeLogs('attack')">惡意攻擊</button>
+            <button onclick="analyzeLogs('attack_api')">API 攻擊</button>
+            <button onclick="analyzeLogs('health')">網站健康度</button>
+            <button onclick="analyzeLogs('attack_agent')">異常 user-agent 攻擊</button>
             <button onclick="analyzeLogs('marketing')">網站商品銷售量</button>
             <button onclick="analyzeLogs('web_click')">網站點擊率</button>
             <button onclick="analyzeLogs('location')">用戶地區分佈</button>
@@ -103,7 +105,15 @@
         try {
             // 根據按鈕類型決定檔案路徑
             let filePath, aiRole, helpMessage;
-            if (type === 'attack') {
+            if (type === 'attack_api') {
+                filePath = './test_data/security/attack.json';
+                aiRole = '你是一個資安分析攻擊的專家';
+                helpMessage = '請幫我分析Log且詳細說明所有的風險，用繁體中文回答。';
+            } else if (type === 'health') {
+                filePath = './test_data/security/attack.json';
+                aiRole = '你是一個資安分析攻擊的專家';
+                helpMessage = '請幫我分析Log且詳細說明所有的風險，用繁體中文回答。';
+            } else if (type === 'attack_agent') {
                 filePath = './test_data/security/attack.json';
                 aiRole = '你是一個資安分析攻擊的專家';
                 helpMessage = '請幫我分析Log且詳細說明所有的風險，用繁體中文回答。';
