@@ -141,3 +141,25 @@ footer {
 .message-board .message .author {
     font-weight: bold;
 }
+
+.action-area {
+    display: none; /* 初始隱藏 */
+    margin-top: 10px; /* 與 messageBoard 的間距 */
+}
+
+.action-area button {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #4CAF50, #66BB6A);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.action-area button:hover {
+    background: linear-gradient(135deg, #45a049, #5cb860);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}

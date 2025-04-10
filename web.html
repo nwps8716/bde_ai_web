@@ -32,6 +32,7 @@
     <div class="left-column">
         <h3>智能分析</h3>
         <div class="message-board" id="messageBoard"></div>
+        <div class="action-area" id="actionArea"></div> <!-- 新增按鈕容器 -->
     </div>
 
     <!-- 右側按鈕區域 -->
@@ -156,7 +157,15 @@
             let buffer = ''; // 用於累積不完整的 JSON 片段
             while (true) {
                 const { done, value } = await reader.read();
-                if (done) break;
+                if (done) {
+                    if (type === 'attack_api' || type === 'attack_agent') {
+                        addButtonToActionArea();
+                    }
+                    allButtons.forEach(btn => {
+                        btn.disabled = false;
+                    });
+                    break;
+                }
 
                 // 解碼並追加到緩衝區
                 buffer += decoder.decode(value, { stream: true });
@@ -186,6 +195,32 @@
             button.textContent = originalText;
             button.disabled = false;
         }
+    }
+    // 在 action-area 中添加按鈕
+    function addButtonToActionArea() {
+        const actionArea = document.getElementById("actionArea");
+        if (!actionArea) {
+            console.error('找不到 actionArea 元素');
+            return;
+        }
+
+        // 清空之前的按鈕（避免重複）
+        actionArea.innerHTML = '';
+
+        const button = document.createElement("button");
+        button.textContent = "部署AI建議"; // 可自訂文字
+        button.addEventListener("click", () => {
+            const latestMessage = document.querySelector("#messageBoard .message:last-child .content");
+            const content = latestMessage?.textContent || "";
+            navigator.clipboard.writeText(content).then(() => {
+                alert("AI 已將優化之設定部署在防護設備上。");
+            }).catch(err => {
+                console.error("部署設定失敗:", err);
+            });
+        });
+
+        actionArea.appendChild(button);
+        actionArea.style.display = 'block'; // 顯示按鈕區域
     }
 </script>
 
