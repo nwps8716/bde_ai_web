@@ -1,0 +1,40 @@
+{
+    "error_rate_increase": [
+      {
+        "timestamp": "2023-03-13T19:10:00Z",
+        "source_ip": "212.127.161.87",
+        "http_error_code": 503,
+        "error_message": "Service Unavailable",
+        "error_reason": "伺服器連線數超過最大負載限制"
+      },
+      {
+        "timestamp": "2025-03-13T03:04:34Z",
+        "source_ip": "120.113.21.85",
+        "http_error_code": 404,
+        "error_message": "Not Found",
+        "error_reason": "請求的API路徑 /v1/old_api 不存在"
+      },
+      {
+        "timestamp": "2025-03-13T19:01:30Z", 
+        "source_ip": "153.3.106.19",
+        "http_error_code": 504,
+        "error_message": "Gateway Timeout",
+        "error_reason": "後端資料庫查詢逾時(超過30秒)"
+      },
+      {
+        "timestamp": "2025-03-13T19:02:30Z",
+        "source_ip": "234.14.177.191",
+        "http_error_code": 400,
+        "error_message": "Bad Request",
+        "error_reason": "請求參數缺少必要欄位: user_id"
+      },
+      {
+        "timestamp": "2025-03-13T03:22:34Z",
+        "source_ip": "89.97.209.84",
+        "http_error_code": 413,
+        "error_message": "Payload Too Large",
+        "error_reason": "上傳檔案大小超過限制(100MB)"
+      }
+  ]
+ 
+}

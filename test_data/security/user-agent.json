@@ -1,0 +1,29 @@
+{
+  "malicious_user_agents": [
+    {
+      "user_agent_string": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+      "malicious": true,
+      "blocking_method": "Rate Limiting"
+    },
+    {
+      "user_agent_string": "Wget/1.21.1",
+      "malicious": true,
+      "blocking_method": "WAF Policy-ID-03"
+    },
+    {
+      "user_agent_string": "sqlmap/1.5.2",
+      "malicious": true,
+      "blocking_method": "WAF Policy-ID-03"
+    },
+    {
+      "user_agent_string": "curl/7.68.0",
+      "malicious": true,
+      "blocking_method": "Rate Limiting"
+    },
+    {
+      "user_agent_string": "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
+      "malicious": true,
+      "blocking_method": "CAPTCHA Challenge"
+    }
+  ]
+ }
